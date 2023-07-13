@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+      "nombreUsuario": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9]+$"
+      },
+      "contrasena": {
+        "type": "string",
+        "minLength": 8,
+        "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^\\s]).*$"
+      },
+      "identificacion": {
+        "type": "string",
+        "pattern": "^[0-9]{10}$",
+        "not": {
+          "pattern": "^(\\d)\\1{3}$"
+        }
+      }
+    },
+    "required": ["nombreUsuario", "contrasena", "identificacion"],
+    "additionalProperties": false
+  }
+  
