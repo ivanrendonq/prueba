@@ -37,11 +37,14 @@ public class UsuariosEntidad {
     @Column(name = "Mail")
     String mail;
 
-    @Column(name = "persona_IdPersona")
+    @Column(name = "Persona_IdPersona")
     Integer persona_IdPersona;
     
     @Column(name = "Status")
     String status;
+
+    @Column(name = "SessionActive")
+    String sessionActive;
 
     @Column(name = "Eliminado")
     String eliminado;

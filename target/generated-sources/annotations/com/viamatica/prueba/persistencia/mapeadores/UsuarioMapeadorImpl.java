@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-07-12T22:05:30-0500",
+    date = "2023-07-13T14:57:49-0500",
     comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.35.0.v20230629-1618, environment: Java 17.0.7 (Eclipse Adoptium)"
 )
 @Component
@@ -32,6 +32,7 @@ public class UsuarioMapeadorImpl implements UsuarioMapeador {
         usuario.setPersona_IdPersona( entidad.getPersona_IdPersona() );
         usuario.setStatus( entidad.getStatus() );
         usuario.setEliminado( entidad.getEliminado() );
+        usuario.setSessionActive( entidad.getSessionActive() );
         usuario.setRoles( rolUsuariosEntidadListToRolUsuarioList( entidad.getRolUsuariosEntidadLista() ) );
 
         return usuario;
@@ -66,6 +67,7 @@ public class UsuarioMapeadorImpl implements UsuarioMapeador {
         usuariosEntidad.setPersona_IdPersona( usuario.getPersona_IdPersona() );
         usuariosEntidad.setStatus( usuario.getStatus() );
         usuariosEntidad.setEliminado( usuario.getEliminado() );
+        usuariosEntidad.setSessionActive( usuario.getSessionActive() );
         usuariosEntidad.setRolUsuariosEntidadLista( rolUsuarioListToRolUsuariosEntidadList( usuario.getRoles() ) );
 
         return usuariosEntidad;

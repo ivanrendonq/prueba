@@ -11,6 +11,7 @@ public class Usuario {
     private String password;
     private String mail;
     private Integer persona_IdPersona;
+    private String sessionActive;
     private String status;
     private String eliminado;
     private List<RolUsuario> roles;

@@ -68,14 +68,15 @@ public class UsuariosServicio {
         
     }
 
-    public Usuario guardar(Usuario usuario)
-    {
-        return usuarioMapeador.toUsuario(
-            
-            usuarioRepositorio.save(
-                usuarioMapeador.toUsuariosEntidad(usuario)
-            )
-        );
+    public Usuario guardar(Usuario usuario) {
+        Optional<UsuariosEntidad> usuarioOptional = usuarioRepositorio.findByUserName(usuario.getUserName());
+        if (!usuarioOptional.isPresent()) {
+            UsuariosEntidad usuariosEntidad = usuarioMapeador.toUsuariosEntidad(usuario);
+            usuariosEntidad.setSessionActive("N");
+            return usuarioMapeador.toUsuario(usuarioRepositorio.save(usuariosEntidad));
+        } else {
+            throw new RuntimeException("Usuario ya creado");
+        }
     }
 
     public Usuario actualizar(Usuario usuario)

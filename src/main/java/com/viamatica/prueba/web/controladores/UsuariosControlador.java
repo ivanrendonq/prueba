@@ -45,15 +45,15 @@ public class UsuariosControlador {
             JsonSchemaValidador validador = new JsonSchemaValidador();
             ObjectMapper objectMapper = new ObjectMapper();
             String usuarioJson = objectMapper.writeValueAsString(usuario);
-            if(validador.validateData(usuarioJson, "src/main/resources/usuarioJsonSchema.json"))
-            {
-                usuariosServicio.guardar(usuario);
-                return new ResponseEntity<Usuario>(usuario,HttpStatus.CREATED);
-            }
+            // if(validador.validateData(usuarioJson, "src/main/resources/usuarioJsonSchema.json"))
+            // {
+                
+                return new ResponseEntity<Usuario>(usuariosServicio.guardar(usuario),HttpStatus.CREATED);
+            // }
 
-            return new ResponseEntity<Usuario>(usuario, HttpStatus.UNPROCESSABLE_ENTITY);
+            // return new ResponseEntity<Usuario>(usuario, HttpStatus.UNPROCESSABLE_ENTITY);
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, e.getMessage());
         }
     }
 

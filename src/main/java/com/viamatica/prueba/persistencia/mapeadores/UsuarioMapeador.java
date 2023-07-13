@@ -22,6 +22,7 @@ public interface UsuarioMapeador {
         @Mapping(source = "persona_IdPersona", target = "persona_IdPersona"),
         @Mapping(source = "status", target = "status"),
         @Mapping(source = "eliminado", target = "eliminado"),
+        @Mapping(source = "sessionActive", target = "sessionActive"),
         @Mapping(source = "rolUsuariosEntidadLista", target = "roles")
     })
     Usuario toUsuario(UsuariosEntidad entidad);
